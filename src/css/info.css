@@ -1,0 +1,11 @@
+.firsttitle {
+  text-align: left;
+  font-size: 25px;
+  font-weight: bold;
+  color: rgb(11, 12, 10);
+  font-style: italic;
+}
+
+.username {
+  color: rgb(5, 4, 5);
+}

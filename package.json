@@ -6,7 +6,7 @@
     "@ant-design/icons": "^4.6.2",
     "antd": "^3.24.3",
     "axios": "^0.21.1",
-    "react": "^16.11.0",
+    "react": "^16.14.0",
     "react-app-rewired": "^2.1.5",
     "react-dom": "^16.11.0",
     "react-redux": "^7.1.1",

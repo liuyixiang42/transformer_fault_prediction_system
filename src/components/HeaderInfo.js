@@ -3,6 +3,7 @@ import { Row, Col } from "antd";
 import "../css/index.css";
 import logoimg from "../assets/logoimg.jpg";
 import { UserAvatar } from "./UserAvatar";
+import {SketchOutlined} from '@ant-design/icons';
 
 export class HeaderInfo extends React.Component {
   render() {
@@ -12,21 +13,12 @@ export class HeaderInfo extends React.Component {
       <div id="header">
         <div id="header-content">
           <Row>
-            <Col xs={24} sm={24} md={5} lg={5} xl={5} xxl={4}>
-              <a id="logo" href={"/"}>
-                {/* <img alt="logo"  className="logo" src={logo} style={{ height:45 }}/>
-                                <img alt="Book Store"  className="logo-font" src={logoFont} style={{ height:40 }}/> */}
-                <img
-                  alt="logo"
-                  className="logo"
-                  style={{ height: 50 }}
-                  src={logoimg}
-                ></img>
-              </a>
-
-              <strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网购图书商城</strong>
+            <Col span={2}/>    
+            <Col span={10}>    
+            <SketchOutlined />
+              <strong>工业变压器故障分析预测系统</strong>
             </Col>
-            <Col xs={0} sm={0} md={19} lg={19} xl={19} xxl={20}>
+            <Col id="user" span={7}>
               {user != null ? <UserAvatar user={user} /> : null}
             </Col>
           </Row>

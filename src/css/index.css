@@ -32,25 +32,27 @@ body,
   }
 }
 
-@media only screen and (max-width: 768px) {
-  #logo {
-    float: initial;
-  }
-}
+
 
 #header {
   position: fixed;
   z-index: 10;
   max-width: 100%;
-  background: rgb(87, 75, 75);
+  background: rgb(62, 123, 255);
   -webkit-box-shadow: 0 2px 8px #f0f1f2;
   box-shadow: 0 2px 8px #f0f1f2;
   width: 100%;
 }
 
 #header-content {
-  width: 1000px;
+  width: 1700px;
   margin: 0 auto;
+  font-size: 30px;
+}
+
+#user {
+  float: left;
+  font-size: 14px;
 }
 
 #avatar {

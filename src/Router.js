@@ -20,6 +20,7 @@ import AddBookView from "./view/AddBookView";
 import EditBookView from "./view/EditBookView";
 import UserCountView from "./view/UserCountView";
 import BookCountView from "./view/BookCountView";
+import TransformerHomeView from "./view/TransformerHomeView"
 
 class BasicRoute extends React.Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class BasicRoute extends React.Component {
     return (
       <Router history={history}>
         <Switch>
-          <PrivateRoute exact path="/" component={HomeView} />
+          <PrivateRoute exact path="/" component={TransformerHomeView} />
           <LoginRoute exact path="/login" component={LoginView} />
           <LoginRoute exact path="/register" component={RegisterView} />
           <PrivateRoute exact path="/bookDetails" component={BookView} />

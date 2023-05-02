@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
+    "@antv/g2plot": "^2.4.29",
     "antd": "^3.24.3",
     "axios": "^0.21.1",
     "react": "^16.14.0",

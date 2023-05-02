@@ -20,7 +20,11 @@ import AddBookView from "./view/AddBookView";
 import EditBookView from "./view/EditBookView";
 import UserCountView from "./view/UserCountView";
 import BookCountView from "./view/BookCountView";
-import TransformerHomeView from "./view/TransformerHomeView"
+import TransformerHomeView from "./view/TransformerHomeView";
+import CoilDataAnalysisView from "./view/CoilDataAnalysisView";
+import OilGasDataAnalysisView from "./view/OilGasDataAnalysisView";
+import DataPredictionView from "./view/DataPredictionView";
+import FaultDataAugmentationView from "./view/FaultDataAugmentationView";
 
 class BasicRoute extends React.Component {
   constructor(props) {
@@ -52,6 +56,11 @@ class BasicRoute extends React.Component {
           <AdminRoute exact path="/orderManage" component={OrderManageView} />
           <AdminRoute exact path="/userCount" component={UserCountView} />
           <AdminRoute exact path="/bookCount" component={BookCountView} />
+
+          <PrivateRoute exact path="/coilDataAnalysis" component={CoilDataAnalysisView} />
+          <PrivateRoute exact path="/oilGasDataAnalysis" component={OilGasDataAnalysisView} />
+          <PrivateRoute exact path="/dataPrediction" component={DataPredictionView} />
+          <PrivateRoute exact path="/faultDataAugmentation" component={FaultDataAugmentationView} />
           <Redirect from="/*" to="/" />
         </Switch>
       </Router>

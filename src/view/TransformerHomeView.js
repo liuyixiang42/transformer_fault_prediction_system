@@ -5,6 +5,7 @@ import "../css/home.css";
 import { withRouter } from "react-router-dom";
 import { Button, Col, Row } from 'antd';
 import {LineChartOutlined, BarChartOutlined, DotChartOutlined} from '@ant-design/icons';
+import { history } from "../utils/history";
 
 const { Header, Content } = Layout;
 
@@ -13,6 +14,24 @@ class TransformerHomeView extends React.Component {
     let user = localStorage.getItem("user");
     this.setState({ user: user });
   }
+
+  coilDataAnalysisOnClick() {
+    history.push("/coilDataAnalysis");
+  }
+
+  oilGasDataAnalysisOnClick() {
+    history.push("/oilGasDataAnalysis");
+  }
+
+  dataPredictionOnClick() {
+    history.push("/dataPrediction");
+  }
+
+  faultDataAugmentationOnClick() {
+    history.push("/faultDataAugmentation")
+  }
+
+
 
   render() {
     return (
@@ -24,7 +43,7 @@ class TransformerHomeView extends React.Component {
             <br /><br />
             <Row gutter={[24, 24]}>
                 <Col span={8}>
-                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round">
+                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round" onClick={this.coilDataAnalysisOnClick}>
                         <LineChartOutlined />
                         <strong>变压器线圈数据故障分析</strong>
                         <p style={{fontSize: "20px"}}>
@@ -36,7 +55,7 @@ class TransformerHomeView extends React.Component {
                     </Button>
                 </Col>
                 <Col span={8}>
-                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round">
+                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round" onClick={this.oilGasDataAnalysisOnClick}>
                         <LineChartOutlined />
                         <strong>变压器油气数据故障分析</strong>
                         <p style={{fontSize: "20px"}}>
@@ -48,7 +67,7 @@ class TransformerHomeView extends React.Component {
                     </Button>
                 </Col>
                 <Col span={8}>
-                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round">
+                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round" onClick={this.dataPredictionOnClick}>
                         <BarChartOutlined />
                         <strong>变压器时序数据预测</strong>
                         <p style={{fontSize: "20px"}}>
@@ -63,7 +82,7 @@ class TransformerHomeView extends React.Component {
             <br /><br />
             <Row>
                 <Col span={8}>
-                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round">
+                    <Button style={{width: "400px", height: "200px", fontSize: "30px"}} shape="round" onClick={this.faultDataAugmentationOnClick}>
                         <DotChartOutlined />
                         <strong>变压器故障数据增强</strong>
                         <p style={{fontSize: "20px"}}>

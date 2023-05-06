@@ -3,28 +3,19 @@ import { Router, Switch, Redirect, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import LoginRoute from "./LoginRoute";
 import AdminRoute from "./AdminRoute";
-import HomeView from "./view/HomeView";
 import LoginView from "./view/LoginView";
 import { history } from "./utils/history";
-import BookView from "./view/BookView";
-import CartView from "./view/CartView";
-import CountView from "./view/CountView";
 import InfoView from "./view/InfoView";
-import BuyView from "./view/BuyView";
-import BuyAllView from "./view/BuyAllView";
 import RegisterView from "./view/RegisterView";
 import UserManageView from "./view/UserManageView";
-import BookManageView from "./view/BookManageView";
-import OrderManageView from "./view/OrderManageView";
-import AddBookView from "./view/AddBookView";
-import EditBookView from "./view/EditBookView";
-import UserCountView from "./view/UserCountView";
-import BookCountView from "./view/BookCountView";
 import TransformerHomeView from "./view/TransformerHomeView";
 import CoilDataAnalysisView from "./view/CoilDataAnalysisView";
 import OilGasDataAnalysisView from "./view/OilGasDataAnalysisView";
 import DataPredictionView from "./view/DataPredictionView";
 import FaultDataAugmentationView from "./view/FaultDataAugmentationView";
+import ModelUploadView from "./view/ModelUploadView"
+import ModelShowView from "./view/ModelShowView"
+import DataShowView from "./view/DataShowView"
 
 class BasicRoute extends React.Component {
   constructor(props) {
@@ -43,24 +34,17 @@ class BasicRoute extends React.Component {
           <PrivateRoute exact path="/" component={TransformerHomeView} />
           <LoginRoute exact path="/login" component={LoginView} />
           <LoginRoute exact path="/register" component={RegisterView} />
-          <PrivateRoute exact path="/bookDetails" component={BookView} />
-          <PrivateRoute exact path="/cart" component={CartView} />
+          
           <PrivateRoute exact path="/info" component={InfoView} />
-          <PrivateRoute exact path="/buy" component={BuyView} />
-          <PrivateRoute exact path="/buyAll" component={BuyAllView} />
-          <PrivateRoute exact path="/count" component={CountView} />
           <AdminRoute exact path="/userManage" component={UserManageView} />
-          <AdminRoute exact path="/bookManage" component={BookManageView} />
-          <AdminRoute exact path="/addBook" component={AddBookView} />
-          <AdminRoute exact path="/editBook" component={EditBookView} />
-          <AdminRoute exact path="/orderManage" component={OrderManageView} />
-          <AdminRoute exact path="/userCount" component={UserCountView} />
-          <AdminRoute exact path="/bookCount" component={BookCountView} />
 
           <PrivateRoute exact path="/coilDataAnalysis" component={CoilDataAnalysisView} />
           <PrivateRoute exact path="/oilGasDataAnalysis" component={OilGasDataAnalysisView} />
           <PrivateRoute exact path="/dataPrediction" component={DataPredictionView} />
           <PrivateRoute exact path="/faultDataAugmentation" component={FaultDataAugmentationView} />
+          <PrivateRoute exact path="/dataShow" component={DataShowView} />
+          <PrivateRoute exact path="/modelShow" component={ModelShowView} />
+          <PrivateRoute exact path="/modelUpload" component={ModelUploadView} />
           <Redirect from="/*" to="/" />
         </Switch>
       </Router>

@@ -42,6 +42,23 @@ class DataShowView extends React.Component {
         history.push("/cool");
     }
 
+
+    coilDataOnClick() {
+        history.push("/coilData");
+    }
+    oilDataOnClick() {
+        history.push("/oilData");
+    }
+    coreDataOnClick() {
+        history.push("/coreData");
+    }
+    coolDataOnClick() {
+        history.push("/coolData");
+    }
+
+
+
+
     render() {
 
         return (
@@ -64,59 +81,59 @@ class DataShowView extends React.Component {
                     </Row>
                     <Row style={{ display: 'flex', margin: "0 auto" }} gutter={[24, 24]}>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}} onClick={this.coilOnClick}>
-                            线圈
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.coilOnClick}>
+                                线圈
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}} onClick={this.terminalOnClick}>
-                        终端子
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.terminalOnClick}>
+                                终端子
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}  onClick={this.insulationOnClick}>
-                        绝缘系统
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.insulationOnClick}>
+                                绝缘系统
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}  onClick={this.coreOnClick}>
-                        铁芯
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.coreOnClick}>
+                                铁芯
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}  onClick={this.oilOnClick}>
-                        油箱
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.oilOnClick}>
+                                油箱
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}  onClick={this.coolOnClick}>
-                        冷却系统
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.coolOnClick}>
+                                冷却系统
+                            </Button>
                         </Col>
                     </Row>
                     <Row style={{ display: 'flex', margin: "0 auto" }} gutter={[24, 24]}>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}>
-                            线圈数据展示
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.coilDataOnClick}>
+                                线圈数据展示
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}>
-                        油气数据展示
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.oilDataOnClick}>
+                                油气数据展示
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}>
-                        铁芯数据展示
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.coreDataOnClick}>
+                                铁芯数据展示
+                            </Button>
                         </Col>
                         <Col>
-                        <Button type="primary" style={{backgroundColor: '#1890ff'}}>
-                        冷却水数据展示
-                        </Button>
+                            <Button type="primary" style={{ backgroundColor: '#1890ff' }} onClick={this.coolDataOnClick}>
+                                冷却水数据展示
+                            </Button>
                         </Col>
                     </Row>
-                    
+
                 </Layout>
             </Layout>
         );

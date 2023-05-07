@@ -25,6 +25,12 @@ import OilShowView from "./view/OilShowView"
 import CoolShowView from "./view/CoolShowView"
 
 
+import CoilDataShowView from "./view/CoilDataShowView"
+import OilDataShowView from "./view/OilDataShowView"
+import CoreDataShowView from "./view/CoreDataShowView"
+import CoolDataShowView from "./view/CoolDataShowView"
+
+
 class BasicRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -60,6 +66,12 @@ class BasicRoute extends React.Component {
           <PrivateRoute exact path="/core" component={CoreShowView} />
           <PrivateRoute exact path="/oil" component={OilShowView} />
           <PrivateRoute exact path="/cool" component={CoolShowView} />
+
+
+          <PrivateRoute exact path="/coilData" component={CoilDataShowView} />
+          <PrivateRoute exact path="/oilData" component={OilDataShowView} />
+          <PrivateRoute exact path="/coreData" component={CoreDataShowView} />
+          <PrivateRoute exact path="/coolData" component={CoolDataShowView} />
 
 
 

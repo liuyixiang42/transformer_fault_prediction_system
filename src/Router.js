@@ -17,6 +17,14 @@ import ModelUploadView from "./view/ModelUploadView"
 import ModelShowView from "./view/ModelShowView"
 import DataShowView from "./view/DataShowView"
 
+import CoilShowView from "./view/CoilShowView"
+import TerminalShowView from "./view/TerminalShowView"
+import InsulationShowView from "./view/InsulationShowView"
+import CoreShowView from "./view/CoreShowView"
+import OilShowView from "./view/OilShowView"
+import CoolShowView from "./view/CoolShowView"
+
+
 class BasicRoute extends React.Component {
   constructor(props) {
     super(props);
@@ -45,6 +53,17 @@ class BasicRoute extends React.Component {
           <PrivateRoute exact path="/dataShow" component={DataShowView} />
           <PrivateRoute exact path="/modelShow" component={ModelShowView} />
           <PrivateRoute exact path="/modelUpload" component={ModelUploadView} />
+
+          <PrivateRoute exact path="/coil" component={CoilShowView} />
+          <PrivateRoute exact path="/terminal" component={TerminalShowView} />
+          <PrivateRoute exact path="/insulation" component={InsulationShowView} />
+          <PrivateRoute exact path="/core" component={CoreShowView} />
+          <PrivateRoute exact path="/oil" component={OilShowView} />
+          <PrivateRoute exact path="/cool" component={CoolShowView} />
+
+
+
+
           <Redirect from="/*" to="/" />
         </Switch>
       </Router>

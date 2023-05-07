@@ -15,10 +15,16 @@ class ModelShowView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            value1: 1,
             value2: 1,
             value3: 1,
         };
     }
+    onChange1 = (e) => {
+        this.setState({
+            value1: e.target.value,
+        });
+    };
     onChange2 = (e) => {
         this.setState({
             value2: e.target.value,
@@ -65,25 +71,27 @@ class ModelShowView extends React.Component {
                             </Button>
                         </Col>
                         <Col span={6}>
-                            氢气噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1} placeholder="氢气噪声因子" />
+                            训练迭代次数<br />
+                            <Input style={{ width: "200px" }} defaultValue={250} placeholder="训练迭代次数" />
 
-                            <br />一氧化碳噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1} placeholder="一氧化碳噪声因子" />
-                            <br />甲烷噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.8} placeholder="甲烷噪声因子" />
-                            <br />乙烯噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.2} placeholder="乙烯噪声因子" />
+                            <br />batch大小<br />
+                            <Input style={{ width: "200px" }} defaultValue={128} placeholder="batch大小" />
+                            <br />学习率<br />
+                            <Input style={{ width: "200px" }} defaultValue={0.001} placeholder="学习率" />
+                            <br />多头注意力head数量<br />
+                            <Input style={{ width: "200px" }} defaultValue={9} placeholder="多头注意力head数量" />
                         </Col>
                         <Col span={8}>
-                            乙炔噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={0} placeholder="乙炔噪声因子" />
-                            <br />总烃噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1.5} placeholder="总烃噪声因子" />
-                            <br />总可燃气体噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1.6} placeholder="总可燃气体噪声因子" />
-                            <br />油温噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1.1} placeholder="油温噪声因子" />
+                            Drop层的比例<br />
+                            <Input style={{ width: "200px" }} defaultValue={0.1} placeholder="Drop层的比例" />
+                            <br />前馈网络中间层的维度大小<br />
+                            <Input style={{ width: "200px" }} defaultValue={16} placeholder="前馈网络中间层的维度大小" />
+                            <br />激活函数<br />
+                            <Radio.Group onChange={this.onChange1} value={this.state.value1}>
+                                <Radio value={1}>sigmoid</Radio>
+                                <Radio value={2}>tanh</Radio>
+                                <Radio value={3}>ReLU</Radio>
+                            </Radio.Group>
                         </Col>
                     </Row>
                     <br /><br />
@@ -142,8 +150,8 @@ class ModelShowView extends React.Component {
                             <Input style={{ width: "200px" }} defaultValue={0.2} placeholder="Drop层的比例" />
                         </Col>
                         <Col span={8}>
-                            迭代次数<br />
-                            <Input style={{ width: "200px" }} defaultValue={100} placeholder="迭代次数" />
+                            训练迭代次数<br />
+                            <Input style={{ width: "200px" }} defaultValue={100} placeholder="训练迭代次数" />
                             <br />batch大小<br />
                             <Input style={{ width: "200px" }} defaultValue={32} placeholder="batch大小" />
                             <br />激活函数<br />

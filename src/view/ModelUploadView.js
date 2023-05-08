@@ -68,7 +68,7 @@ class ModelUploadView extends React.Component {
                                 </p>
                                 <p className="ant-upload-text">单击或拖动文件到此区域进行上传</p>
                                 <p className="ant-upload-hint">
-                                    支持单次或批量上传。支持pkl,h5和pb文件。
+                                    支持单次上传。支持pkl,h5和pb文件。
                                 </p>
                             </Dragger>
                         </Col>
@@ -85,9 +85,19 @@ class ModelUploadView extends React.Component {
                             <Input placeholder="模型名称" />
                             <br /><br /><br />
                             <p style={{ fontSize: "17px" }}>
-                                模型功能介绍
+                                功能介绍
                             </p>
-                            <Input placeholder="模型功能介绍" />
+                            <Input placeholder="功能介绍" />
+                            <br /><br /><br />
+                            <p style={{ fontSize: "17px" }}>
+                            输入参量类型
+                            </p>
+                            <Input placeholder="输入参量类型" />
+                            <br /><br /><br />
+                            <p style={{ fontSize: "17px" }}>
+                            模型参数
+                            </p>
+                            <Input placeholder="模型参数" />
 
 
 

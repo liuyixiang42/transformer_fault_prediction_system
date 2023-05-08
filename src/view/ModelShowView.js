@@ -3,46 +3,96 @@ import { Layout } from "antd";
 import { HeaderInfo } from "../components/HeaderInfo";
 import "../css/home.css";
 import { withRouter } from "react-router-dom";
-import { Button, Col, Row, Typography, Input, Radio } from 'antd';
-import { LineChartOutlined, BarChartOutlined, DotChartOutlined, PieChartOutlined, SlidersOutlined, PlusSquareOutlined } from '@ant-design/icons';
+import { Button, Col, Row, Typography, Input, Radio, Table } from 'antd';
+import { RightCircleOutlined, PlusSquareOutlined } from '@ant-design/icons';
 import { history } from "../utils/history";
+
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
 
-class ModelShowView extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            value1: 1,
-            value2: 1,
-            value3: 1,
-        };
+class ModelArgsShowView1 extends React.Component {
+    modelUploadOnClick() {
+        history.push("/modelUpload")
     }
-    onChange1 = (e) => {
-        this.setState({
-            value1: e.target.value,
-        });
-    };
-    onChange2 = (e) => {
-        this.setState({
-            value2: e.target.value,
-        });
-    };
-    onChange3 = (e) => {
-        this.setState({
-            value3: e.target.value,
-        });
-    };
+    modelArgsShow1OnClick() {
+        history.push("/modelArgsShow1")
+    }
 
+    modelArgsShow2OnClick() {
+        history.push("/modelArgsShow2")
+    }
 
-    componentDidMount() {
-        let user = localStorage.getItem("user");
-        this.setState({ user: user });
+    modelArgsShow3OnClick() {
+        history.push("/modelArgsShow3")
+    }
+
+    modelArgsShow4OnClick() {
+        history.push("/modelArgsShow4")
     }
 
     render() {
+        const columns = [
+            {
+                title: '模型名称',
+                dataIndex: 'a',
+                key: 'a',
+            },
+            {
+                title: '功能介绍',
+                dataIndex: 'b',
+                key: 'b',
+            },
+            {
+                title: '输入参量类型',
+                dataIndex: 'c',
+                key: 'c',
+            },
+            {
+                title: '模型参数',
+                dataIndex: 'd',
+                key: 'd',
+            },
+            {
+                title: '模型调整',
+                key: 'action',
+                render: (text, record) => (
+                    <span>
+                        {record.action} {/* 在单元格中渲染 Button 组件 */}
+                    </span>
+                ),
+            },
+        ];
+        const data = [
+            {
+                a: '油气数据异常检测模型',
+                b: '基于Transformer模型实现对油气数据的异常检测',
+                c: '氢气，一氧化碳，甲烷等油气浓度以及油温',
+                d: '训练迭代次数，batch大小，学习率，多头注意力head数量等',
+                action: <Button type="primary" onClick={this.modelArgsShow1OnClick}><RightCircleOutlined /></Button>,
+            },
+            {
+                a: '油气故障数据聚类模型',
+                b: '基于Gauss混合模型实现对油气故障数据的聚类',
+                c: '氢气，一氧化碳，甲烷等油气浓度以及油温',
+                d: '最大迭代次数，初始聚类中心选择方式，收敛阈值等',
+                action: <Button type="primary" onClick={this.modelArgsShow2OnClick}><RightCircleOutlined /></Button>,
+            },
+            {
+                a: '线圈数据分类模型',
+                b: '基于LSTM模型实现对线圈时序数据的标签分类',
+                c: 'A相，B相，C相电路的电压和电流',
+                d: '神经元数量，初始学习率，自适应学习率的衰减率，Drop层的比例等',
+                action: <Button type="primary" onClick={this.modelArgsShow3OnClick}><RightCircleOutlined /></Button>,
+            },
+            {
+                a: '变压器故障数据增强算法',
+                b: '基于时域和频域以及其混合实现对变压器故障数据的增强',
+                c: '氢气，一氧化碳，甲烷等油气浓度以及油温',
+                d: '氢气噪声因子，一氧化碳噪声因子，甲烷噪声因子，油温噪声因子等',
+                action: <Button type="primary" onClick={this.modelArgsShow4OnClick}><RightCircleOutlined /></Button>,
+            },
+        ]
         return (
             <Layout className="layout">
                 <Header>
@@ -53,148 +103,27 @@ class ModelShowView extends React.Component {
                     <Row>
                         <Col span={24}>
                             <Title>
-                                模型介绍及参数调整
+                                模型介绍及管理
                             </Title>
                         </Col>
                     </Row>
 
-                    <Row gutter={[200, 24]}>
-                        <Col span={8}>
-                            <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} shape="round" >
-                                <strong>Transformer异常检测模型</strong>
-                                <p style={{ fontSize: "20px" }}>
-                                    <br />
-                                    基于Transformer模型实现对油气数据的
-                                    <br />
-                                    异常检测
-                                </p>
-                            </Button>
+                    <Row>
+                        <Col>
+                            <Table columns={columns} dataSource={data} />
                         </Col>
-                        <Col span={6}>
-                            训练迭代次数<br />
-                            <Input style={{ width: "200px" }} defaultValue={250} placeholder="训练迭代次数" />
 
-                            <br />batch大小<br />
-                            <Input style={{ width: "200px" }} defaultValue={128} placeholder="batch大小" />
-                            <br />学习率<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.001} placeholder="学习率" />
-                            <br />多头注意力head数量<br />
-                            <Input style={{ width: "200px" }} defaultValue={9} placeholder="多头注意力head数量" />
-                        </Col>
-                        <Col span={8}>
-                            Drop层的比例<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.1} placeholder="Drop层的比例" />
-                            <br />前馈网络中间层的维度大小<br />
-                            <Input style={{ width: "200px" }} defaultValue={16} placeholder="前馈网络中间层的维度大小" />
-                            <br />激活函数<br />
-                            <Radio.Group onChange={this.onChange1} value={this.state.value1}>
-                                <Radio value={1}>sigmoid</Radio>
-                                <Radio value={2}>tanh</Radio>
-                                <Radio value={3}>ReLU</Radio>
-                            </Radio.Group>
-                        </Col>
                     </Row>
-                    <br /><br />
-                    <Row gutter={[200, 24]}>
-                        <Col span={8}>
-                            <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} shape="round" >
-                                <strong>Gauss混合模型聚类模型</strong>
+                    <Row>
+                        <Col span={24}>
+                            <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} type="dashed" shape="round" onClick={this.modelUploadOnClick}>
+                                <PlusSquareOutlined style={{ fontSize: "60px" }} />
                                 <p style={{ fontSize: "20px" }}>
                                     <br />
-                                    基于GMM实现对油气故障数据的
-                                    <br />
-                                    聚类
+                                    支持向系统上传新的数据处理模型
+
                                 </p>
                             </Button>
-                        </Col>
-                        <Col span={6}>
-                            最大迭代次数<br />
-                            <Input style={{ width: "200px" }} defaultValue={100} placeholder="最大迭代次数" />
-                            <br />聚类中心数量<br />
-                            <Input style={{ width: "200px" }} defaultValue={5} placeholder="聚类中心数量" />
-
-                            <br />收敛阈值<br />
-                            <Input style={{ width: "200px" }} defaultValue={1e-3} placeholder="收敛阈值" />
-                        </Col>
-                        <Col span={8}>
-                            初始聚类中心选择方式<br />
-                            <Radio.Group onChange={this.onChange2} value={this.state.value2}>
-                                <Radio value={1}>kmeans</Radio>
-                                <Radio value={2}>随机选择</Radio>
-                                <Radio value={3}>均匀采样</Radio>
-                            </Radio.Group>
-                        </Col>
-                    </Row>
-                    <br /><br />
-                    <Row gutter={[200, 24]}>
-                        <Col span={8}>
-                            <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} shape="round" >
-                                <strong>LSTM数据分类模型</strong>
-                                <p style={{ fontSize: "20px" }}>
-                                    <br />
-                                    基于LSTM实现对线圈数据的
-                                    <br />
-                                    带标签分类
-                                </p>
-                            </Button>
-                        </Col>
-                        <Col span={6}>
-                            神经元数量<br />
-                            <Input style={{ width: "200px" }} defaultValue={64} placeholder="神经元数量" />
-
-                            <br />初始学习率<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.001} placeholder="初始学习率" />
-                            <br />自适应学习率的衰减率<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.9} placeholder="自适应学习率的衰减率" />
-                            <br />Drop层的比例<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.2} placeholder="Drop层的比例" />
-                        </Col>
-                        <Col span={8}>
-                            训练迭代次数<br />
-                            <Input style={{ width: "200px" }} defaultValue={100} placeholder="训练迭代次数" />
-                            <br />batch大小<br />
-                            <Input style={{ width: "200px" }} defaultValue={32} placeholder="batch大小" />
-                            <br />激活函数<br />
-                            <Radio.Group onChange={this.onChange3} value={this.state.value3}>
-                                <Radio value={1}>sigmoid</Radio>
-                                <Radio value={2}>tanh</Radio>
-                                <Radio value={3}>ReLU</Radio>
-                            </Radio.Group>
-                        </Col>
-                    </Row>
-                    <br /><br />
-                    <Row gutter={[200, 24]}>
-                        <Col span={8}>
-                            <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} shape="round" >
-                                <strong>故障数据增强模型</strong>
-                                <p style={{ fontSize: "20px" }}>
-                                    <br />
-                                    基于时域和频域以及其混合实现对
-                                    <br />
-                                    故障数据的增强
-                                </p>
-                            </Button>
-                        </Col>
-                        <Col span={6}>
-                            氢气噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1} placeholder="氢气噪声因子" />
-
-                            <br />一氧化碳噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1} placeholder="一氧化碳噪声因子" />
-                            <br />甲烷噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.8} placeholder="甲烷噪声因子" />
-                            <br />乙烯噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={0.2} placeholder="乙烯噪声因子" />
-                        </Col>
-                        <Col span={8}>
-                            乙炔噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={0} placeholder="乙炔噪声因子" />
-                            <br />总烃噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1.5} placeholder="总烃噪声因子" />
-                            <br />总可燃气体噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1.6} placeholder="总可燃气体噪声因子" />
-                            <br />油温噪声因子<br />
-                            <Input style={{ width: "200px" }} defaultValue={1.1} placeholder="油温噪声因子" />
                         </Col>
                     </Row>
                 </Layout>
@@ -203,4 +132,4 @@ class ModelShowView extends React.Component {
     }
 }
 
-export default withRouter(ModelShowView);
+export default withRouter(ModelArgsShowView1);

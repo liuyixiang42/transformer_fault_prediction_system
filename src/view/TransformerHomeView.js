@@ -39,10 +39,6 @@ class TransformerHomeView extends React.Component {
     history.push("/modelShow")
   }
 
-  modelUploadOnClick() {
-    history.push("/modelUpload")
-  }
-
   render() {
     return (
       <Layout className="layout">
@@ -68,11 +64,11 @@ class TransformerHomeView extends React.Component {
             <Col span={8}>
               <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} shape="round" onClick={this.modelShowOnClick}>
                 <SlidersOutlined />
-                <strong>算法模型展示及参数调整</strong>
+                <strong>算法模型管理</strong>
 
                 <p style={{ fontSize: "20px" }}>
                   <br />
-                  展示系统算法模型和可调节参数
+                  介绍算法模型及模型管理
                 </p>
               </Button>
             </Col>
@@ -91,7 +87,7 @@ class TransformerHomeView extends React.Component {
             </Col>
           </Row>
           <br /><br />
-          <Row>
+          <Row gutter={[24, 24]}>
             <Col span={8}>
               <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} shape="round" onClick={this.oilGasDataAnalysisOnClick}>
                 <LineChartOutlined />
@@ -125,19 +121,6 @@ class TransformerHomeView extends React.Component {
                   根据变压器的故障时序数据样本
                   <br />
                   生成相同故障类型的不同时序数据
-                </p>
-              </Button>
-            </Col>
-          </Row>
-          <br /><br />
-          <Row>
-            <Col span={8}>
-              <Button style={{ width: "400px", height: "200px", fontSize: "30px", borderWidth: "2px", borderColor: "black" }} type="dashed" shape="round" onClick={this.modelUploadOnClick}>
-              <PlusSquareOutlined style={{fontSize: "60px"}} />
-              <p style={{ fontSize: "20px" }}>
-                  <br />
-                  支持向系统上传新的数据处理模型
-                  
                 </p>
               </Button>
             </Col>

@@ -24,12 +24,15 @@ import CoreShowView from "./view/CoreShowView"
 import OilShowView from "./view/OilShowView"
 import CoolShowView from "./view/CoolShowView"
 
-
 import CoilDataShowView from "./view/CoilDataShowView"
 import OilDataShowView from "./view/OilDataShowView"
 import CoreDataShowView from "./view/CoreDataShowView"
 import CoolDataShowView from "./view/CoolDataShowView"
 
+import ModelArgsShowView1 from "./view/ModelArgsShowView1"
+import ModelArgsShowView2 from "./view/ModelArgsShowView2"
+import ModelArgsShowView3 from "./view/ModelArgsShowView3"
+import ModelArgsShowView4 from "./view/ModelArgsShowView4"
 
 class BasicRoute extends React.Component {
   constructor(props) {
@@ -67,14 +70,15 @@ class BasicRoute extends React.Component {
           <PrivateRoute exact path="/oil" component={OilShowView} />
           <PrivateRoute exact path="/cool" component={CoolShowView} />
 
-
           <PrivateRoute exact path="/coilData" component={CoilDataShowView} />
           <PrivateRoute exact path="/oilData" component={OilDataShowView} />
           <PrivateRoute exact path="/coreData" component={CoreDataShowView} />
           <PrivateRoute exact path="/coolData" component={CoolDataShowView} />
 
-
-
+          <PrivateRoute exact path="/modelArgsShow1" component={ModelArgsShowView1} />
+          <PrivateRoute exact path="/modelArgsShow2" component={ModelArgsShowView2} />
+          <PrivateRoute exact path="/modelArgsShow3" component={ModelArgsShowView3} />
+          <PrivateRoute exact path="/modelArgsShow4" component={ModelArgsShowView4} />
 
           <Redirect from="/*" to="/" />
         </Switch>

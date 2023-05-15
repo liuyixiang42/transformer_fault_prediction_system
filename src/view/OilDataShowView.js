@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import { HeaderInfo } from "../components/HeaderInfo";
 import "../css/home.css";
 import { withRouter } from "react-router-dom";
-import { Row, Typography, message, Upload, Col } from 'antd';
+import { Row, Typography, message, Upload, Col, Button } from 'antd';
 import { Table } from 'antd';
 import myImage from '../assets/coil.jpg';
 import "../css/login.css";
@@ -444,6 +444,11 @@ class OilDataShowView extends React.Component {
                             <Title>
                                 油气数据
                             </Title>
+                        </Col>
+                        <Col>
+                        <Button type="primary" style={{ backgroundColor: '#1890ff' }} >
+                                数据上传
+                            </Button>
                         </Col>
                     </Row>
                     <Row>
